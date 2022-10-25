@@ -1,15 +1,18 @@
+import { ActionTypes } from "../Constant";
+
 const INITIALSTATE ={
     globalCounter:0,
+    name :"example",
 };
 
 const addCounterReducer=(state =INITIALSTATE,action)=>{
     switch(action.type){
-        case "PLUS_COUNTER":
+        case ActionTypes.PLUS_COUNTER:
             console.log();
             return{
                 globalCounter: ++state.globalCounter,
             };
-            case "MINUS_COUNTER":
+            case ActionTypes.MINUS_COUNTER:
                 console.log();
                 return{
                     globalCounter: --state.globalCounter,

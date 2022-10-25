@@ -1,7 +1,9 @@
+import { ActionTypes } from "../Constant";
+
 const AddCounterAction =()=>{
     return(dispatch)=>{
         dispatch({
-            type:"PLUS_COUNTER",
+            type:ActionTypes.PLUS_COUNTER,
           
         });
     }
@@ -9,7 +11,7 @@ const AddCounterAction =()=>{
 const MinusCounterAction=(dispatch)=>{
     return (dispatch)=>{
         dispatch({
-            type:"MINUS_COUNTER"
+            type:ActionTypes.MINUS_COUNTER,
         });
     };
 };
