@@ -3,22 +3,27 @@ import NavbarCmp from '../Components/Navbar'
 import axios from "axios"
 import { Col, Container, Row } from 'react-bootstrap'
 import CardCmp from '../Components/Cards'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProductAction } from './Action/Products'
+
+
 
 const Website = () => {
-  const [data,setData]=useState([])
-  useEffect(()=>{
-    axios.get("https://fakestoreapi.com/products")
-    .then(response=>{
-      console.log(response,"response");
-      setData(response.data)
-    }) 
-    .catch(error=>{
-      console.log(error,"error");
-    })
-  })
+
+  // const [data,setData] =useState([])
+  const dispatch = useDispatch();
+  const {data,dataLoading} =useSelector((state)=>state.GetProductReducer);
+  // console.log(selector,"selector");
+
+  useEffect (()=> {
+     dispatch(getProductAction())
+  },[]);
+
+  console.log("data",data);
   return (<>
     <NavbarCmp/>
-    <Container className='mt-5'>
+   { dataLoading ? <h1>Loading...</h1>  :
+   <Container className='mt-5'>
     <Row>
       {data.map((product)=>{
         return( 
@@ -29,7 +34,7 @@ const Website = () => {
       })}
         
     </Row>
-    </Container>
+    </Container>}
 </>)
 }
 
