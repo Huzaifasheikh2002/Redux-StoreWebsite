@@ -1,0 +1,4 @@
+apke pass redux-thunk hai na wo state hoti hai inmutible 
+toolkit m change krkste ho
+
+useSelector reducer ko apni states ko subscribe krta hai

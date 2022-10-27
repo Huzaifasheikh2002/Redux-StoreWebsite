@@ -2,7 +2,7 @@ import { ActionTypes } from "../Constant";
 
 const INITIALSTATE ={
     globalCounter:0,
-    name :"example",
+    name :"StoreHub",
 };
 
 const addCounterReducer=(state =INITIALSTATE,action)=>{
